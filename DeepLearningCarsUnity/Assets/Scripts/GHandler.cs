@@ -20,7 +20,19 @@ public class GHandler : MonoBehaviour
     public GameObject[] cars;
     float[] fitnessList;
     public float timeSpeed = 1;
-    public int generation = 1;
+
+    //Updates the HUD
+    public GameObject hud;
+    private int _gen = 1;
+    public int generation
+    {
+        get { return _gen; }
+        set
+        {
+            _gen = value;
+            hud.GetComponent<hudScript>().UpdateGeneration(value);
+        }
+    }
 
 
     /*Ideas to improve learning rate, may be implemented layer
